@@ -1,13 +1,13 @@
-<h3>组件说明</h3>
+<h2>组件说明</h2>
 　　此日期功能组件，包括日期选择器和月份选择器两类，覆盖大部分的日期选择的交互和功能，特别适合基于日期或者月份所做的配置类或数据展示类的操作，组件基于jQuery1.7.2。
 
-<h3>文件列表</h3>
-　　+  jquery.min.js是官方jQuery1.7.2的压缩版。
-　　+  gri.monthPicker.js是月份选择器的主JS库，其中包含各个组件源码，和工具支持库函数。
-　　+  gri.controls.css 是月份选择器的样式列表。
-　　+  Images/.. 是用到的图片，供其他系统离线使用。
-　　
-<h3>组件列表</h3>
+<h2>文件列表</h2>
++  jquery.min.js是官方jQuery1.7.2的压缩版。
++  gri.monthPicker.js是月份选择器的主JS库，其中包含各个组件源码，和工具支持库函数。
++  gri.controls.css 是月份选择器的样式列表。
++  Images/.. 是用到的图片，供其他系统离线使用。
+
+<h2>组件列表</h2>
 <h4>1、月份选择器</h4>
 a、调用示例：
 <pre><code>GRI.monthPicker.create('month_picker', {
