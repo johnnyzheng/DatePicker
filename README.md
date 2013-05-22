@@ -10,13 +10,14 @@
 <h2>组件列表</h2>
 <h4>1、月份选择器</h4>
 a、调用示例：
-<pre><code>GRI.monthPicker.create('month_picker', {
-                                                         trigger : 'month_trigger',
-					  		autoCommit : true,
-					  		callback : function(obj){
-					  			//callback
-					  		}
-					  	});
+<pre><code>GRI.monthPicker.create('month_picker', 
+				  {trigger : 'month_trigger',
+				   autoCommit : true,
+				   callback : function(obj){
+				   		//callback
+				   		}
+				   }
+				   );
 </code></pre>
 b、接口参数说明:
 <pre><code>
