@@ -58,6 +58,10 @@ GRI.monthPicker.create(‘id’, // input控件id，在页面显示的月份
 　　		//是否加载即回调
 　　		autoCommit : false,
 　　		//返回的是月份，还是日期，默认是月份
-　　		returnDate : false
+　　		returnDate : false,
+                //默认选中的时间月份 字符串形如：'201302'
+		defaultMonth : '', 
+		//默认选中上个月
+		lastMonth : false
 　　	});
 </code></pre>
