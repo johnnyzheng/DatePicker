@@ -4,6 +4,7 @@
  * @author johnnyzheng(johnnyzheng@tencent.com)
  * @version 2013-03-27
  * @modification 第一次抽取到框架中的月份选择器
+ *  2013-05-03 解决bug:IE9下向前向后重复出发
  * ========================================
  */
 
@@ -49,13 +50,17 @@ GRI.monthPicker = {
 		//是否加载即回调
 		autoCommit : false,
 		//返回的是月份，还是日期，默认是月份
-		returnDate : false
+		returnDate : false,
+		//默认选中的时间月份
+		defaultMonth : '',
+		//默认选中上个月
+		lastMonth : false
 	},
 
 	//最终的返回值，初始值是当前年月
 	assemble : {
 		'year' : new Date().getFullYear(),
-		'month' : new Date().getMonth() + 1
+		'month' :new Date().getMonth() + 1
 	},
 
 	/**
@@ -77,7 +82,9 @@ GRI.monthPicker = {
 				that.show(that.util.$(id));
 			});
 		}();
-		//默认填充最近一个月
+		//默认填充最近一个月, 如果设置了默认选中上一个月，则选中上一个月， 如果默认设置了月份，则显示。后者覆盖前者
+		this._conf.lastMonth && (this.assemble.month = new Date().getMonth()); 
+		''!==this._conf.defaultMonth && (this.assemble = {'year':this._conf.defaultMonth.substr(0,4), 'month':this._conf.defaultMonth.substr(4)*1});
 		var def = this.util.format(this.assemble);
 		$('#'+id).html(def.year + '-' + def.month);
 		that._conf.autoCommit && that._conf.callback(that.convertToDate(this.util.format(this.assemble)));
@@ -180,19 +187,19 @@ GRI.monthPicker = {
 		ctrl = [];
 
 		//为上一年增加点击事件
-		//this.util.addEvt(this.util.$('gri_preYear'), 'click', function(evt, target) {
-		//	that.preYear(that.reset);
-		//});
-		//为下一年增加点击事件
-		//this.util.addEvt(this.util.$('gri_nextYear'), 'click', function(evt, target) {
-		//	that.nextYear(that.reset);
-		//});
+		// this.util.addEvt(this.util.$('gri_preYear'), 'click', function(evt, target) {
+			// that.preYear(that.reset);
+		// });
 		$('#gri_preYear').click(function(){
 			that.preYear(that.reset);
 		});
 		$('#gri_nextYear').click(function(){
 			that.nextYear(that.reset);
 		});
+		//为下一年增加点击事件
+		// this.util.addEvt(this.util.$('gri_nextYear'), 'click', function(evt, target) {
+			// that.nextYear(that.reset);
+		// });
 		this.reset(this);
 		return table;
 
@@ -236,7 +243,7 @@ GRI.monthPicker = {
 	},
 	//上一年
 	preYear : function(fn) {
-	    this.assemble.year = this.assemble.year*1 - 1;
+		this.assemble.year = this.assemble.year*1 - 1;
 		this.util.$('gri_year').innerHTML = this.assemble.year + '年';
 		fn && fn(this);
 	},
@@ -301,7 +308,7 @@ GRI.monthPicker = {
 
 		//如果是当前年月，增加样式
 		var c = obj.getCurrentShowDate();
-		if(obj.util.format(obj.assemble).year == c.year && obj.util.format(obj.assemble).month == c.month) {
+		if(obj.util.format(obj.assemble).year == c.year && obj.util.format(obj.assemble).month == c.month ) {
 			$('#gri_month' + obj.assemble.month).addClass(obj._conf.selectCss);
 		}
 	},
