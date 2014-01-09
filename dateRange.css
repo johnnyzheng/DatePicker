@@ -1,14 +1,3 @@
-/**
- * =================================================
- * 日期选择器的默认样式文件。
- * @author johnnyzheng(johnnyzheng@tencent.com)
- * @version 2012-07-30
- *
- * =================================================
- */
-
-/*========== reset 样式  ==========*/
-@charset "utf-8";
 
 /*========== reset ==========*/
 html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td, iframe,hr{margin:0;padding:0;}
@@ -22,13 +11,9 @@ table {border-collapse:collapse;border-spacing:0;}
 select,input,label,button,textarea{margin:0;padding:0;font:normal normal normal "微软雅黑",arial,Simsun,Arial Unicode MS,Mingliu,Arial;overflow:visible;}
 input{padding:2px 0 1px;*padding:4px 0 0;_padding:4px 0 0;_height:21px;}
 
-
-/*==== 业务系统可以自定义reset input框体样式，可以让日期框体的日期字体更加柔和====*/
-/*input{
-    color: #333333;
-    font: 12px/1.5 Tahoma,Helvetica,'SimSun',sans-serif;
-}*/
-/*====对比checkbox样式====*/
+/**
+* GRI主题
+*/
 .gri_contrast {
     float: left;
     margin: 4px 8px 0 8px;
@@ -38,15 +23,15 @@ input{padding:2px 0 1px;*padding:4px 0 0;_padding:4px 0 0;_height:21px;}
     font: 12px/1.5 Tahoma, Helvetica, 'SimSun', sans-serif;
 }
 
-/*====日期面板的样式====*/
+
 .gri_date {
-    margin: 4px 4px;
+/*    margin: 4px 4px;*/
     padding: 0 26px 0 6px;
     width: 195px;
     height: 20px;
     line-height: 20px;
     border: 1px solid #D6D6D6;
-    background: #FFF url('../images/icon_date.png') no-repeat 100% 50%;
+    background: #FFF url('./images/icon_date.png') no-repeat 100% 50%;
     cursor: pointer;
     color: #666;
 }
@@ -95,7 +80,7 @@ input{padding:2px 0 1px;*padding:4px 0 0;_padding:4px 0 0;_height:21px;}
     float: left;
     width: 15px;
     height: 17px;
-    background: url('../images/page.png') no-repeat 0 0;
+    background: url('./images/page.png') no-repeat 0 0;
     overflow: hidden;
 }
 
@@ -103,7 +88,7 @@ input{padding:2px 0 1px;*padding:4px 0 0;_padding:4px 0 0;_height:21px;}
     float: right;
     width: 15px;
     height: 17px;
-    background: url('../images/page.png') no-repeat -15px 0;
+    background: url('./images/page.png') no-repeat -15px 0;
     overflow: hidden;
 }
 
@@ -182,7 +167,7 @@ input{padding:2px 0 1px;*padding:4px 0 0;_padding:4px 0 0;_height:21px;}
 
 /**
  * =================================================
- * 日期选择器的TA主题
+ * TA主题
  * =================================================
  */
 .ta_date{ 
@@ -238,7 +223,7 @@ input{padding:2px 0 1px;*padding:4px 0 0;_padding:4px 0 0;_height:21px;}
 	
 }
 
-.ta_date .i_orderd{/*==下三角==*/
+.ta_date .i_orderd{
 	display: inline-block;
 	width: 0;
 	height: 0;
@@ -253,8 +238,6 @@ input{padding:2px 0 1px;*padding:4px 0 0;_padding:4px 0 0;_height:21px;}
 }
 
 
-
-/*=====日历确认展示标题=====日历控件=========*/
 .ta_calendar2{*width:536px;}
 .ta_calendar1{*width:268px;}
 .ta_calendar{
@@ -277,7 +260,8 @@ input{padding:2px 0 1px;*padding:4px 0 0;_padding:4px 0 0;_height:21px;}
 	z-index:100;
 }
 .i_pre,.i_next,.ta_calendar td.ta_dateRangeSelected,.ta_calendar td.first,.ta_calendar td.last,.ta_calendar td.today{
-	background:url(http://imgcache.qq.com/bossweb/mta/images/calendar_all.png) no-repeat;
+	/*background:url(http://imgcache.qq.com/bossweb/mta/images/calendar_all.png) no-repeat;*/
+	background:url(./images/calendar_all.png) no-repeat;
 	cursor:pointer;
 }
 .i_pre,.i_next{ width:23px; height:23px;display:inline-block; }
@@ -356,7 +340,7 @@ input{padding:2px 0 1px;*padding:4px 0 0;_padding:4px 0 0;_height:21px;}
 				padding: 4px 11px;
 				text-align:center;
 				white-space:nowrap;
-				font-family:"微软雅黑";
+				font-family:"΢���ź�";
 				cursor:pointer;
 			}
 			.calendar-month td.hover,.calendar-month td:hover,.calendar-month caption span:hover{
@@ -433,7 +417,7 @@ input{padding:2px 0 1px;*padding:4px 0 0;_padding:4px 0 0;_height:21px;}
 .ta_ipt_text_s {
     width: 80px;
 }
-/*这里是按钮的样式*/
+
 .ta_btn {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
@@ -451,7 +435,7 @@ input{padding:2px 0 1px;*padding:4px 0 0;_padding:4px 0 0;_height:21px;}
     color: #333333;
     cursor: pointer;
     display: inline-block;
-    font-family: "微软雅黑","宋体";
+    font-family: "΢���ź�","����";
     font-size: 12px;
     line-height: 20px;
     margin-bottom: 0;
@@ -505,7 +489,6 @@ input{padding:2px 0 1px;*padding:4px 0 0;_padding:4px 0 0;_height:21px;}
     border: 1px solid #286AB1;
     color: #FFFFFF;
 }
-/*按钮样式结束*/
 
 .cf:after {
     clear: both;
@@ -521,320 +504,3 @@ input{padding:2px 0 1px;*padding:4px 0 0;_padding:4px 0 0;_height:21px;}
     display: table;
 }
 
-label.contrast {
-    color: #666666;
-    cursor: pointer;
-    float: left;
-    line-height: 20px;
-    margin: 4px 8px 0;
-}
-
-
-
-/**
- * =================================================
- * 列表的默认样式文件。
- * @author xiangchen(xiangchen@tencent.com)
- * @version 2013-03-24
- *
- * =================================================
- */
-/*========== reset ==========*/
-@charset "utf-8";
-
-/*========== reset ==========*/
-.gri_wrapper table{font:12px/1.6 Tahoma,microsoft yahei,"微软雅黑","宋体";*font-family:"微软雅黑","宋体";}
-.gri_wrapper table img { border:0; }
-.gri_wrapper table caption,.gri_wrapper table th { text-align:left; }
-.gri_wrapper table h1,.gri_wrapper table h2,.gri_wrapper table h3,.gri_wrapper table h4,.gri_wrapper table h5,.gri_wrapper table h6 { font-size:100%; }
-.gri_wrapper table {border-collapse:collapse;border-spacing:0;}
-.gri_wrapper table select,.gri_wrapper table input,.gri_wrapper table label,.gri_wrapper table button,.gri_wrapper table textarea{margin:0;padding:0;font:normal normal normal "微软雅黑",arial,Simsun,Arial Unicode MS,Mingliu,Arial;overflow:visible;}
-.gri_wrapper table input{padding:2px 0 1px;*padding:4px 0 0;_padding:4px 0 0;_height:21px;}
-
-/* CSS Document */
-/*==table==*/
-.gri_wrapper-title{ text-align:right; line-height:32px;}
-.gri_wrapper-title h3{text-align:left; float:left;font-size: 16px;font-weight:400;}
-.gri_wrapper-title .link-thin{ margin-right:10px; *display:inline-block;*vertical-align: top;}
-.gri_wrapper-title .btn-append{ display:inline; }
-.gri_wrapper table .num {
-	/*width: 40px;*/
-}
-
-.gri_wrapper table .url{
-	width: 150px;
-}
-.gri_wrapper table .plate{
-	width: 100px;
-}
-.gri_wrapper table .theme{
-	width: 100px;
-}
-.gri_wrapper table {
-	width: 100%;
-	font-size: 12px;
-	border-collapse: collapse;
-	border: 1px solid #e1e1e1;
-}
-.gri_wrapper table tbody tr:hover  td{
-  border-bottom: 1px solid #d5e5f4;
-  border-top: 1px solid #d5e5f4;
-   background-color: #eaf2fa;
-  cursor:pointer;
-}
-
-.gri_wrapper table tbody td {
-	line-height: 19px;
-	padding: 10px 8px;
-	color:#666;
-	white-space:nowrap;
-	border:1px solid #e8e8e8;
-}
-.gri_wrapper table thead th {
-	line-height: 19px;
-	padding:8px;
-	color:#444;
-	border: 1px solid #e1e1e1;
-	text-align:left;
-	 -webkit-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 1.0);
-     -moz-box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 1.0);
-          box-shadow: inset 0px 1px 0 rgba(255, 255, 255, 1.0);
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fafafa), to(#f3f3f3));
-	background: -moz-linear-gradient(top,#fafafa,#f3f3f3);
-	background: -ms-linear-gradient(top,#fafafa,#f3f3f3);
-	background-color:#f5f5f5\0;
-	*background:#f5f5f5;
-	white-space: nowrap;
-	overflow: hidden;
-}
-.gri_wrapper table tfoot td{
-	line-height: 19px;
-	padding: 7px 8px;
-	background:#fafafa;
-	border: 1px solid #e1e1e1;
-	color:#777777;
-	font-weight:700;
-}
-.gri_wrapper table .num {/*数字*/
-	text-align: center;
-}
-.gri_wrapper table thead .thead_col th{
-	background:#fff;
-}
-
-.gri_wrapper table table tbody td{ text-align:left;}
-.gri_wrapper table tbody tr.hover td {
-  border-bottom: 1px solid #d5e5f4;
-  border-top: 1px solid #d5e5f4;
-   background-color: #eaf2fa;
- cursor:pointer;
-
-}
-/*==表格使用排序箭头=====*/
-.icon-orderu,.icon-orderd,.icon-order-hover{  
-	display:inline-block;
-	vertical-align:middle;
-	margin:0 3px;
-	overflow: hidden;
-	width: 9px;
-	height: 7px;
-	background:url(/portal/resource/scripts/img/icon-table-arrow.png);
-	line-height: 0;
-	font-size: 0;
-	margin-left: 6px;
-}
-
-.icon-orderu{
-	background-position:0 0;
-}
-.icon-orderd{
-	background-position:0 -7px;
-}
-
-.icon-order-hover{  /*==三角形==icon-order-hover 占位符==*/
-	background-image:none;
-}
-
-.gri_wrapper table thead th.hover{
-	cursor:pointer;
-}
-
-.gri_wrapper table thead th:hover .icon-order-hover{
-	background:url(/portal/resource/scripts/img/icon-table-arrow.png) 0px 0px;
-	height:14px;
-}
-
-.gri_wrapper table thead th:hover{
-	background: #eaeaea;
-	 -webkit-box-shadow:none;
-     -moz-box-shadow:none;
-          box-shadow:none;
-}
-
-/*
-.gri_wrapper table thead th.visited{
-	background: #eaeaea;
-	 -webkit-box-shadow:none;
-     -moz-box-shadow:none;
-          box-shadow:none;
-}
-*/
-
-/*=============翻页==================================================*/
-.gri_pg {
-	padding: 10px 0;
-}
-.gri_pg .show {
-	float: left;
-	margin-right: 10px;
-	color: #999999;
-	_padding-bottom:3px;
-	font-size:12px;
-}
-.gri_pg .show em {
-	color: #555;
-	padding:0 3px;
-}
-
-.gri_pg .show .ipt_show{
-	margin-left: 5px;
-	vertical-align: top;
-}
-
-.gri_pg .record {
-	float: right;
-	color: #999999;
-}
-.gri_pg .ipt_show {
-	width: 50px;
-	padding: 1px;
-	*padding:0 0 2px 0;
-	line-height: 18px;
-	*height:22px;
-	border: 1px solid #c9c9c9;
-	font-size: 12px;
-	font-family: "Tahoma";
-	vertical-align:middle;
-}
-.gri_pg .pg {
-	float: right;
-}
-.pg {
-	border-top: 1px solid #d7d7d7;
-	border-bottom: 1px solid #d7d7d7;
-	border-left: 1px solid #d6d6d6;
-	border-right: 1px solid #d6d6d6;
-	float:left;
-	font-size:0;
-}
-.pg a,.pg span,.pg strong{
-	padding:11px 12px 0;
-	height:24px;
-	font-size:12px;
-	font-family:"Tahoma";
-	display:inline-block;
-	line-height:normal;
-	vertical-align:middle;
-
-}
-.pg a:link, .pg a:visited {
-	color:#686868;
-	text-decoration: none;
-
-}
-.pg a:active, .pg a:hover {
-	border-left: 1px solid #d6d6d6;
-	border-right: 1px solid #d6d6d6;
-	text-decoration: none;
-	background-color: #fefefe;
-	padding:11px 11px 0;
-	height:24px;
-  background-image: -ms-linear-gradient(top, #fafafa, #ececec);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fafafa), to(#ececec));
-  background-image: -moz-linear-gradient(top, #fafafa, #ececec);
-  background-image: -o-linear-gradient(top, #fafafa, #ececec);
-  background-image: linear-gradient(top, #fafafa, #ececec);
-  background-repeat: repeat-x;
-  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fafafa', endColorstr='#ececec', GradientType=0);
-  filter: progid:dximagetransform.microsoft.gradient(enabled=false);
- 	background:#fafafa\9;
-	
- 
-}
-.pg .current{
-	border-left: 1px solid #d6d6d6;
-	border-right: 1px solid #d6d6d6;
-	color:#333333;
-	font-weight:700;
-	border-top:2px solid #37adf0;
-	margin-top:-1px;
-	padding:10px 11px 0;
-	height:24px;
-	position:relative;
-	left:-1px;
-	z-index:1;
-}
-.pg a.current:link, .pg a.current:visited {
-	
-}
-.pg a.current:active, .pg a.current:hover {
-
-	
-}
-.i_pg_f,.i_pg_e,.i_pg_l,.i_pg_n{
-	width:16px; height:16px; 
-	display:inline-block;
-	vertical-align:top;
-	cursor:pointer;
-	font-size:0;
-}
-.i_pg_f{ background:url(/portal/resource/scripts/img/i_pg_f.png);}
-.i_pg_e{background:url(/portal/resource/scripts/img/i_pg_e.png);}
-.i_pg_l{background:url(/portal/resource/scripts/img/i_pg_l.png);}
-.i_pg_n{background:url(/portal/resource/scripts/img/i_pg_n.png);}
-
-.pg a.first:link, .pg a.first:visited {
-	border-right: 1px solid #d6d6d6;
-	padding:11px 9px 0;
-	height:24px;
-	border-left:none;
-	*margin-left:0px;
-}
-
-.pg a.first:active, .pg a.first:hover {
-	padding:11px 9px 0;
-	height:24px;
-	border-right: 1px solid #d6d6d6;
-	*margin-left:0px;
-}
-.pg a.end:link, .pg a.end:visited {
-	border-left: 1px solid #d6d6d6;
-	padding:11px 9px 0;
-	height:24px;
-	border-right:none;
-}
-.pg a.end:active, .pg a.end:hover {
-	border-left: 1px solid #d6d6d6;
-	padding:11px 9px 0;
-	height:24px;
-	border-right:none;
-}
-
-
-/*=============其它==================================================*/
-.gri_autotipsdiv{
-    position: absolute;
-    z-index: 9999;
-    width: auto;
-    padding: 5px;
-    font-size: 12px;
-    line-height: 20px;
-    left: 530px;
-    top: 445px;
-    text-align: center;
-    display: none;
-
-    word-wrap: break-word;
-    word-break: break-all;
-    background-color: #FF
-}
