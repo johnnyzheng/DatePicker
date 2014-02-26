@@ -613,6 +613,16 @@ pickerDateRange.prototype.getSpecialPeriod = function(period){
 	return {today: todayStr , otherday : otherdayStr};
 }
 
+pickerDateRange.prototype.getCurrentDate = function(){
+    return {
+            'startDate': $('#' + this.mOpts.startDateId).val(), 
+            'endDate': $('#' + this.mOpts.endDateId).val(), 
+            'needCompare' : $('#' + this.mOpts.compareCheckboxId).val(),
+            'startCompareDate':$('#' + this.mOpts.startCompareDateId).val(), 
+            'endCompareDate':$('#' + this.mOpts.endCompareDateId).val()
+            };
+};
+
 /**
  * @description 移除选择日期面板的样式
  * @param {Boolean} isCompare 是否是对比日期面板
