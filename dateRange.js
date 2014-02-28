@@ -915,7 +915,7 @@ pickerDateRange.prototype.show = function(isCompare, __method) {
  * @param {Boolean} btnSubmit 是否是点击确定按钮关闭的 
  */
 pickerDateRange.prototype.close = function(btnSubmit) {
-
+	var __method = this;
     //by zacharycai 关闭后就解绑了
     //$(document).unbind('click');
 
@@ -996,8 +996,8 @@ pickerDateRange.prototype.close = function(btnSubmit) {
 			}
 		}
 	}
-	// 隐藏日期选择框
-	$("#" + this.calendarId).css('display', 'none');
+	// 隐藏日期选择框 延迟200ms 关闭日期选择框
+    setTimeout(function(){$("#" + __method.calendarId).css('display', 'none')}, 200);
     return false;
 };
 
