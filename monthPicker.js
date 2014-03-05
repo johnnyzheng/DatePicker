@@ -53,6 +53,8 @@ var monthPicker = {
 		start_month : '',
 		//结束月份，只有上述为true时才生效
 		end_month : '',
+		//所有月份都可选
+		all_month_valid : false,
 		//默认文字
 		defaultText : ' 至 '
 	},
@@ -230,7 +232,7 @@ var monthPicker = {
 				td.setAttribute('id', 'gri_month' + months.data[p][i]);
 				var method = this.addCss;
 				//判断是否超过今年
-				if(this.assemble.year == this.util.getCurrentDate().year &&  months.data[p][i] > this.util.getCurrentDate().month){
+				if(!this._conf.all_month_valid && this.assemble.year == this.util.getCurrentDate().year &&  months.data[p][i] > this.util.getCurrentDate().month){
 					$(td).addClass(this._conf.disabledCss);
 				}
 				//判断是否是区间选择
@@ -343,7 +345,7 @@ var monthPicker = {
 			if(cells[o].id && reg.test(cells[o].id)) {
 				// cells[o].removeAttribute(this.util.getCla());
 				$(cells[o]).removeClass(this._conf.selectCsss).removeClass(this._conf.disabledCss);
-				if(this.assemble.year == this.util.getCurrentDate().year && cells[o].id.match(reg)[1] > this.util.getCurrentDate().month){
+				if(!this._conf.all_month_valid && this.assemble.year == this.util.getCurrentDate().year && cells[o].id.match(reg)[1] > this.util.getCurrentDate().month){
 					$(cells[o]).addClass(this._conf.disabledCss);
 				}
 			}
