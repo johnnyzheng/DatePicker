@@ -997,7 +997,7 @@ pickerDateRange.prototype.close = function(btnSubmit) {
 		}
 	}
 	// 隐藏日期选择框 延迟200ms 关闭日期选择框
-    setTimeout(function(){$("#" + __method.calendarId).css('display', 'none')}, 200);
+    $("#" + __method.calendarId).css('display', 'none');
     return false;
 };
 
