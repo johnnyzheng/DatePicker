@@ -3,6 +3,17 @@
  * 月份选择器
  * @author johnnyzheng(johnnyzheng@tencent.com)
  * @version 2012-08-24
+ * 		03-05
+		1、月份选择扩展接口，使当年的未来月份也可选。
+		01-05
+		修复月份选择器的bug
+		1、IE9，IE10下，只能选一个月
+		2、跨年选择的时候，月份是反的
+		3、跨年的选中态有问题
+		05-29
+		默认选中月份bug修复
+		返回的对象格式支持年份/月份
+		支持默认选中上个月的参数
  *
  * ========================================
  */
@@ -47,6 +58,12 @@ var monthPicker = {
 		callback : function(obj){return true},
 		//是否加载即回调
 		autoCommit : false,
+		//返回的是月份，还是日期，默认是月份
+		returnMonth : false,
+		//默认选中的时间月份 , 字符串规范形如： '201302'
+		defaultMonth : '',
+		//默认选中上个月
+		lastMonth : false,
 		//支持区间选择
 		period :  false,
 		//开始月份，只有上述为true时才生效
@@ -91,9 +108,11 @@ var monthPicker = {
 			
 		}
 		else{
-		//默认填充最近一个月
-		var def = this.util.format(this.assemble);
-		$('#'+id).html(def.year + '-' + def.month);
+			this._conf.lastMonth && (this.assemble.month = new Date().getMonth()); 
+			''!==this._conf.defaultMonth && (this.assemble = {'year':this._conf.defaultMonth.substr(0,4), 'month':this._conf.defaultMonth.substr(4)*1});
+			//默认填充最近一个月
+			var def = this.util.format(this.assemble);
+			$('#'+id).html(def.year + '-' + def.month);
 			that._conf.autoCommit && that._conf.callback(that.convertToDate(this.util.format(this.assemble)));
 		}
 		 //让用户点击页面即可关闭弹窗
@@ -120,10 +139,15 @@ var monthPicker = {
 	 * @return {Object} 开始结束时间对象
 	 */
 	convertToDate : function(obj){
-		return {
-				'startDate' : obj.year + '-' + obj.month + '-01', 
-				'endDate' : obj.year + '-' + obj.month + '-31'
-				};
+		if(this._conf.returnMonth){
+			return {
+					'start_date' : obj.year + '-' + obj.month + '-01', 
+					'end_date' : obj.year + '-' + obj.month + '-31'
+					};
+		}
+		else{
+			return obj.year + '-' + obj.month;		
+		}
 	},
 	
 	//展示框体
