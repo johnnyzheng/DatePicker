@@ -726,7 +726,7 @@ pickerDateRange.prototype.checkDateRange = function(startYmd, endYmd) {
         }
     } else {
         // 判断是否超过最大日期外
-        maxEDate = this.str2date(startYmd);
+        maxEDate = this.str2date(stPartYmd);
         maxEDate.setMonth(maxEDate.getMonth() - this.mOpts.monthRangeMax);
         maxEDate.setDate(maxEDate.getDate() - this.mOpts.dayRangeMax + 1);
         if(maxEDate.getTime() > eTime) {
