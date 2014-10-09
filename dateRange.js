@@ -34,7 +34,7 @@
                 startCompareDate : '', // 对比开始日期
                 endCompareDate : '', // 对比结束日期
 	        minValidDate : '315507600', //最小可用时间，控制日期选择器的可选力度
-        maxValidDate : '', // 最大可用时间，与stopToday 配置互斥
+            maxValidDate : '', // 最大可用时间，与stopToday 配置互斥
         success : function(obj) {return true;}, //回调函数，选择日期之后执行何种操作
         startDateId : 'startDate', // 开始日期输入框ID
         startCompareDateId : 'startCompareDate', // 对比开始日期输入框ID
