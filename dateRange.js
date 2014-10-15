@@ -9,7 +9,9 @@
  *                    2013-03-15  支持一个页面多个日期选择器，快捷日期选择
  *                    2013-03-26  增加确认、取消按钮的隐藏，而直接自动提交
  * 					  2013-08-01  扩展接口，增加最近90天，增加自定义可选时间
- * 					  2013-08-12 日期选择器框体宽度超出视窗大小的时候制动鼓靠右对齐
+ * 					  2013-08-12  日期选择器框体宽度超出视窗大小的时候制动鼓靠右对齐
+ *					  2014-02-25  增加业务接口：获取当前日期对象的的选中日期
+ *					  2014-10-13  扩展参数，支持日期下拉选择自定义年和月份，配合theme:ta来使用。
  *=======================================================================
 */
 	/**
@@ -69,6 +71,7 @@
 		shortOpr : false, //结合单天日期选择的短操作，不需要确定和取消的操作按钮。
 		noCalendar : false, //日期输入框是否展示
 		theme : 'gri', //日期选择器的主题，目前支持 'gri' / 'ta'
+		magicSelect : false, //用户自定义选择年、月，与{theme:ta}配合使用。
 		autoCommit : false, //加载后立马自动提交
 		autoSubmit : false, //没有确定，取消按钮，直接提交 
 		replaceBtn : 'btn_compare'
@@ -458,31 +461,54 @@ pickerDateRange.prototype.init = function(isCompare) {
 	var isNeedCompare = typeof(isCompare) != 'undefined'? isCompare && $("#" + __method.compareCheckboxId).attr('checked') : $("#" + __method.compareCheckboxId).attr('checked');
     // 清空日期列表的内容
     $("#" + this.dateListId).empty();
-
+	
     // 如果开始日期为空，则取当天的日期为开始日期
     var endDate = '' == this.mOpts.endDate ? (new Date()) : this.str2date(this.mOpts.endDate);
     // 日历结束时间
     this.calendar_endDate = new Date(endDate.getFullYear(), endDate.getMonth() + 1, 0);
 
-    // 计算并显示以 endDate 为结尾的最近几个月的日期列表
-    for(var i = 0; i < this.mOpts.calendars; i ++) {
-		var td = null;
-		if(this.mOpts.theme == 'ta'){
-			td = this.fillDate(endDate.getFullYear(), endDate.getMonth(), i);
+	//如果是magicSelect 自定义年和月份，则自定义填充日期
+	if(this.mOpts.magicSelect && this.mOpts.theme == 'ta'){
+		var i = 0;
+		do{
+			var td = null;
+			if(i==0){
+				td = this.fillDate(this.str2date($('#'+this.endDateId).val()).getFullYear(), this.str2date($('#'+this.endDateId).val()).getMonth(), i);
+				$("#" + this.dateListId).append(td);
+			}
+			else{
+				td = this.fillDate(this.str2date($('#'+this.startDateId).val()).getFullYear(), this.str2date($('#'+this.startDateId).val()).getMonth(), i);
+				var firstTd = (this.mOpts.theme == 'ta' ? $("#" + this.dateListId).find('table').get(0) : $("#" + this.dateListId).find('td').get(0));
+				$(firstTd).before(td);
+			}
+			i++;
+		}while(i<2);
+		// 日历开始时间
+		this.calendar_startDate = new Date(this.str2date($('#'+this.startDateId).val()).getFullYear(), this.str2date($('#'+this.startDateId).val()).getMonth(), 1);
+	
+	}else{
+		// 计算并显示以 endDate 为结尾的最近几个月的日期列表
+		for(var i = 0; i < this.mOpts.calendars; i ++) {
+			var td = null;
+			if(this.mOpts.theme == 'ta'){
+				td = this.fillDate(endDate.getFullYear(), endDate.getMonth(), i);
+			}
+			else{
+				td = document.createElement('td');
+				$(td).append(this.fillDate(endDate.getFullYear(), endDate.getMonth(), i));
+				$(td).css('vertical-align', 'top');
+			}
+			if(0 == i) {
+				$("#" + this.dateListId).append(td);
+			} else {
+				var firstTd = (this.mOpts.theme == 'ta' ? $("#" + this.dateListId).find('table').get(0) : $("#" + this.dateListId).find('td').get(0));
+				$(firstTd).before(td);
+			}
+			endDate.setMonth(endDate.getMonth() - 1, 1);
 		}
-		else{
-			td = document.createElement('td');
-			$(td).append(this.fillDate(endDate.getFullYear(), endDate.getMonth(), i));
-			$(td).css('vertical-align', 'top');
-		}
-        if(0 == i) {
-            $("#" + this.dateListId).append(td);
-        } else {
-            var firstTd = (this.mOpts.theme == 'ta' ? $("#" + this.dateListId).find('table').get(0) : $("#" + this.dateListId).find('td').get(0));
-            $(firstTd).before(td);
-        }
-        endDate.setMonth(endDate.getMonth() - 1, 1);
-    }
+		 // 日历开始时间
+		this.calendar_startDate = new Date(endDate.getFullYear(), endDate.getMonth() + 1, 1);
+	}
 
     // 上一个月
     $('#' + this.preMonth).bind('click', function() {
@@ -516,8 +542,11 @@ pickerDateRange.prototype.init = function(isCompare) {
 		}
         return false;
     });
-    // 日历开始时间
-    this.calendar_startDate = new Date(endDate.getFullYear(), endDate.getMonth() + 1, 1);
+	
+	//如果有用户自定义选择月份，则为其绑定事件
+	if(this.mOpts.magicSelect) this.bindChangeForSelect();
+	
+
     // 初始化时间选区背景
     if(this.endDateId != this.dateInput && this.endCompareDateId != this.dateInput) {
          (isNeedCompare && typeof(isCompare) !='undefined') ? this.addCSS(1) : this.addCSS(0);
@@ -530,6 +559,7 @@ pickerDateRange.prototype.init = function(isCompare) {
 		__method.addCSS(0);
 	
 	}
+	
 	// 隐藏对比日期框
 	$('#' + __method.inputCompareId).css('display', isNeedCompare ? '' : 'none');
 	$('#' + this.compareInputDiv).css('display', $('#' + this.compareCheckboxId).attr('checked') ? '' : 'none');
@@ -592,7 +622,103 @@ pickerDateRange.prototype.init = function(isCompare) {
     })
 };
 
-
+pickerDateRange.prototype.bindChangeForSelect = function(){
+	var __method = this;
+	//气泡弹窗
+	var _popup = function(btn, ctn, wrap, css) {
+			css = css || 'open';
+			var ITEMS_TIMEOUT = null, time_out = 500;
+	
+			function hidePop() {
+				$('#' + ctn).removeClass(css);
+			}
+	
+			function showPop() {
+				$('#' + ctn).addClass(css);
+			}
+	
+			function isPopShow() {
+				return $('#' + ctn).attr('class') == css;
+			}
+	
+	
+			$("#" + btn).click(function() {
+				isPopShow() ? hidePop() : showPop();
+			}).mouseover(function() {
+				clearTimeout(ITEMS_TIMEOUT);
+			}).mouseout(function() {
+				ITEMS_TIMEOUT = setTimeout(hidePop, time_out);
+			});
+	
+			$('#' + wrap).mouseover(function() {
+				clearTimeout(ITEMS_TIMEOUT);
+			}).mouseout(function() {
+				ITEMS_TIMEOUT = setTimeout(hidePop, time_out);
+			});
+		};
+	
+	//自定义选择的触发动作
+	try{
+		$("#" + this.dateListId).find('div[id*="selected"]').each(function(){
+				//绑定pop
+				var _match = $(this).attr('id').match(/(\w+)_(\d)/i);
+				if(_match){
+					var _name = _match[1];//名称
+					var _idx = _match[2];//下标
+					
+					if(_name=='yselected'){
+						_popup('_ybtn_'+_idx, $(this).attr('id'), '_yctn_'+_idx);
+					}
+					else if(_name=='mselected'){
+						_popup('_mbtn_'+_idx, $(this).attr('id'), '_mctn_'+_idx);
+					}
+					
+					$(this).find('li a').each(function(){
+						$(this).click(function() {
+							var match = $(this).parents('.select_wrap').attr('id').match(/(\w+)_(\d)/i);
+							//if(match){
+								var name = match[1];//名称
+								var idx = match[2];//下标
+								var nt = null;
+								if(idx^1 == 0){
+								//开始
+									if(name == 'yselected'){
+										__method.calendar_startDate.setYear($(this).text()*1 , 1);
+										//__method.calendar_startDate.setMonth(__method.str2date($('#'+__method.startDateId).val()).getMonth(), 1);
+									}
+									else if(name='mselected'){
+										//__method.calendar_startDate.setYear(__method.str2date($('#'+__method.startDateId).val()).getFullYear(), 1);
+										__method.calendar_startDate.setMonth($(this).text()*1-1, 1);
+									}
+									__method.mOpts.startDate = __method.date2ymd(__method.calendar_startDate).join('-');
+									nt = __method.fillDate(__method.calendar_startDate.getFullYear(), __method.calendar_startDate.getMonth(), idx);
+								}
+								else{
+									//结束
+									if(name == 'yselected'){
+										__method.calendar_endDate.setYear($(this).text()*1 , 1);
+										//__method.calendar_endDate.setMonth(__method.str2date($('#'+__method.endDateId).val()).getMonth(), 1);
+									}
+									else if(name='mselected'){
+										//__method.calendar_endDate.setYear(__method.str2date($('#'+__method.endDateId).val()).getFullYear(), 1);
+										__method.calendar_endDate.setMonth($(this).text()*1-1, 1);
+									}
+									__method.mOpts.endDate = __method.date2ymd(__method.calendar_endDate).join('-');
+									nt = __method.fillDate(__method.calendar_endDate.getFullYear(), __method.calendar_endDate.getMonth(), idx);
+								}
+								var tb = $("#" + __method.dateListId).find('table').get(idx^1);
+								$(tb).replaceWith(nt);
+							//}
+							__method.removeCSS(0);
+							__method.bindChangeForSelect();
+						});		
+					});
+				}
+			});
+		}catch(e){
+			window.console && console.log(e);
+		}
+}
 /**
  * @description 计算今天，昨天，最近7天，最近30天返回的时间范围
  * @param {Num} period 快捷选择的时间段，今天、昨天、最近7天、最近30天
@@ -636,12 +762,19 @@ pickerDateRange.prototype.removeCSS = function(isCompare, specialClass) {
     if('undefined' == typeof(isCompare)) {
         isCompare = 0;
     }
-
+	
     // 整个日期列表的开始日期
-    var bDate = new Date(this.calendar_startDate.getFullYear(), this.calendar_startDate.getMonth(), this.calendar_startDate.getDate());
+	var s_date = this.calendar_startDate;
+	var e_date = this.calendar_endDate;
+	//如果是用户自定义选择的话，需要充值样式边界日期
+	if(this.mOpts.magicSelect){
+		s_date = this.str2date($('#'+this.startDateId).val());
+		e_date = this.str2date($('#'+this.endDateId).val());
+	}
+    var bDate = new Date(s_date.getFullYear(), s_date.getMonth(), s_date.getDate());
     var cla = '';
     // 从开始日期循环到结束日期
-    for(var d = new Date(bDate); d.getTime() <= this.calendar_endDate.getTime(); d.setDate(d.getDate() + 1)) {
+    for(var d = new Date(bDate); d.getTime() <= e_date.getTime(); d.setDate(d.getDate() + 1)) {
             if(0 == isCompare) {
                 // 移除日期样式
                 cla = this.mOpts.theme + '_' + this.mOpts.selectCss;
@@ -652,7 +785,6 @@ pickerDateRange.prototype.removeCSS = function(isCompare, specialClass) {
         // 移除指定样式
         $('#'+ this.calendarId + '_'  + this.date2ymd(d).join('-')).removeClass(cla);
 		$('#'+ this.calendarId + '_'  + this.date2ymd(d).join('-')).removeClass(this.mOpts.firstCss).removeClass(this.mOpts.lastCss).removeClass(this.mOpts.clickCss);
-		
     }
 };
 
@@ -715,6 +847,7 @@ pickerDateRange.prototype.checkDateRange = function(startYmd, endYmd) {
     var sTime = sDate.getTime();
     var eTime = eDate.getTime();
     var minEDate, maxEDate;
+
     if(eTime >= sTime) {
         // 判断是否超过最大日期外
         maxEDate = this.str2date(startYmd);
@@ -996,7 +1129,7 @@ pickerDateRange.prototype.close = function(btnSubmit) {
 		}
 	}
 	// 隐藏日期选择框 延迟200ms 关闭日期选择框
-    $("#" + __method.calendarId).css('display', 'none');
+	$("#" + __method.calendarId).css('display', 'none');
     return false;
 };
 
@@ -1032,9 +1165,34 @@ pickerDateRange.prototype.fillDate = function(year, month, index) {
 		table.className = this.mOpts.dateTable;
 
 		cap = document.createElement('caption');
-		$(cap).append(year + '年' + (month + 1) + '月');
-		$(table).append(cap);
 		
+		//如果是magicSelect，用户自定义的选择年和月份
+		if(this.mOpts.magicSelect){
+			var yh = ['<div class="select_wrap" id="yselected_'+index+'"><div class="select" id="_ybtn_'+index+'">'+year+'</div><div class="dropdown" id="_yctn_'+index+'"><ul class="list_menu">']
+			var mh = ['<div class="select_wrap" id="mselected_'+index+'"><div class="select" id="_mbtn_'+index+'">'+(month+1)+'</div><div class="dropdown" id="_mctn_'+index+'"><ul class="list_menu">']
+		
+			//var yh = ['<select name="yselected_'+index+'" class="xxxs">'];
+			//var mh = ['<select name="mselected_'+index+'" class="xxxs">'];
+			i=1;
+			yt = yToday;
+			do{
+				//yh.push('<option value="'+yt+'" '+(yt == year? 'selected' : '')+'>'+(yt--)+'</option>');
+				//mh.push('<option value="'+i+'" '+(i == (month+1)? 'selected' : '')+'>'+(i++)+'</option>');
+				yh.push('<li><a href="javascript:;">'+(yt--)+'</a></li>');
+				mh.push('<li><a href="javascript:;">'+(i++)+'</a></li>');
+			}while(i <= 12);
+			//yh.push('</select>');
+			//mh.push('</select>');		
+			yh.push('</ul></div></div>');
+			mh.push('</ul></div></div>');			
+			$(cap).append(yh.join('') +'<span class="joinLine"> 年 </span>'+mh.join('')+'<span class="joinLine"> 月 </span>');
+
+		}
+		else{
+			$(cap).append(year + '年' + (month + 1) + '月');
+		}
+		
+		$(table).append(cap);
 		thead = document.createElement('thead');
 		tr = document.createElement('tr');
 		var days = ['日', '一', '二', '三', '四', '五', '六'];
@@ -1049,13 +1207,16 @@ pickerDateRange.prototype.fillDate = function(year, month, index) {
 		tr = document.createElement('tr');
 		td = document.createElement('td');
 		// 如果是最后一个月的日期，则加上下一个月的链接
-		if(0 == index) {
-			$(td).append('<a href="javascript:void(0);" id="' + this.nextMonth + '"><i class="i_next"></i></a>');
+		if(!this.mOpts.magicSelect){
+			if(0 == index) {
+				$(td).append('<a href="javascript:void(0);" id="' + this.nextMonth + '"><i class="i_next"></i></a>');
+			}
+			// 如果是第一个月的日期，则加上上一个月的链接
+			if(index + 1 == this.mOpts.calendars) {
+				$(td).append('<a href="javascript:void(0);" id="' + this.preMonth + '"><i class="i_pre"></i></a>');
+			}
 		}
-		// 如果是第一个月的日期，则加上上一个月的链接
-		if(index + 1 == this.mOpts.calendars) {
-			$(td).append('<a href="javascript:void(0);" id="' + this.preMonth + '"><i class="i_pre"></i></a>');
-		}
+		
 	//    $(td).append('<span style="font-size:16px">' + year + '年' + (month + 1) + '月' + '</span>');
 		$(td).attr('colSpan', 7);
 		$(td).css('text-align', 'center');
