@@ -75,6 +75,7 @@ b、接口参数说明:
 		shortOpr : false, //结合单天日期选择的短操作，不需要确定和取消的操作按钮。
 		noCalendar : false, //日期输入框是否展示
 		theme : 'gri', //日期选择器的主题，目前支持 'gri' / 'ta'
+		magicSelect : false, //用户通过下来选择器，选择自定义的年和月份，配合monthRangeMax 配合使用，且必须在theme:ta , calendars:2 的情况下才会生效。
 		autoCommit : false, //加载后立马自动提交
 		autoSubmit : false, //没有确定，取消按钮，直接提交 
 		replaceBtn : 'btn_compare'
