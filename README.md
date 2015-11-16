@@ -5,15 +5,15 @@
 +  jquery.min.js是官方jQuery1.7.2的压缩版。
 +  dateRange.js是日期选择器的主JS库。
 +  dateRange.css 是日期选择器的样式列表。
-+  monthPicker.js 月份选择器的主JS库。
-+  monthPicker.css 月份选择器的样式列表。
++  ./images 是组件用到的图片资源。
 +  sample.html 示例代码
-+  ./images/.. 是组件用到的图片资源。
 
 <h2>组件列表</h2>
 <h4>1、日期选择器</h4>
 a、调用示例：
-<pre><code>var dateRange = new pickerDateRange('date_demo3', {
+<pre>
+	<code>
+		var dateRange = new pickerDateRange('date_demo3', {
 					isTodayValid : true,
 					startDate : '2013-04-14',
 					endDate : '2013-04-21',
@@ -25,7 +25,8 @@ a、调用示例：
 					}
 				});
 
-</code></pre>
+	</code>
+</pre>
 b、接口参数说明:
 <pre><code>
  var defaults = {
