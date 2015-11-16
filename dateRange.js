@@ -69,7 +69,7 @@ function pickerDateRange(inputId, options) {
         disCertainDate: [], //不可用的日期设置数组，如:[1,3]是要1号，3号 两天不可选，特别的，[true,1,3]则反之，只有1，3可选，其余不可选。
         shortOpr: false, //结合单天日期选择的短操作，不需要确定和取消的操作按钮。
         noCalendar: false, //日期输入框是否展示
-        theme: 'gri', //日期选择器的主题，目前支持 'gri' / 'ta'
+        theme: 'ta', //日期选择器的主题，目前支持 'gri' / 'ta'
         magicSelect: false, //用户自定义选择年、月，与{theme:ta}配合使用。
         autoCommit: false, //加载后立马自动提交
         autoSubmit: false, //没有确定，取消按钮，直接提交 

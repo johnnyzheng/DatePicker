@@ -25,6 +25,7 @@
 </pre>
 ###重点参数:###
 ####startDate####
+<<<<<<< Updated upstream
 >这是日期选择器初始化时候，必须传入的开始日期的参数，与endDate成对出现，
 >格式如:'2015-10-10'
 ####calendars####
@@ -68,3 +69,8 @@
         }
     </code>
 </pre>
+=======
+>这是
+
+
+>>>>>>> Stashed changes
