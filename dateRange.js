@@ -12,6 +12,7 @@
  * 					  2013-08-12  日期选择器框体宽度超出视窗大小的时候制动鼓靠右对齐
  *					  2014-02-25  增加业务接口：获取当前日期对象的的选中日期
  *					  2014-10-13  扩展参数，支持日期下拉选择自定义年和月份，配合theme:ta来使用。
+ *                    2015-11-17  重新整理代码
  *=======================================================================
  */
 /**
@@ -855,7 +856,7 @@ pickerDateRange.prototype.checkDateRange = function(startYmd, endYmd) {
         }
     } else {
         // 判断是否超过最大日期外
-        maxEDate = this.str2date(stPartYmd);
+        maxEDate = this.str2date(startYmd);
         maxEDate.setMonth(maxEDate.getMonth() - this.mOpts.monthRangeMax);
         maxEDate.setDate(maxEDate.getDate() - this.mOpts.dayRangeMax + 1);
         if (maxEDate.getTime() > eTime) {
