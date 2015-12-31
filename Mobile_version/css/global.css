@@ -1,0 +1,1947 @@
+/**
+ * atom项目样式汇总
+ * @author  WeiwuZhu(朱伟武)
+ */
+/** 样式前缀集合 */
+/** 公用变量 */
+/**
+ * 公用变量
+ * @author  WeiwuZhu(朱伟武)
+ */
+/*--颜色--*/
+/* 灰色 */
+/* 浅灰 */
+/* 蓝色 */
+/* 红色 */
+/* 绿色 */
+/* 常用边框颜色 */
+/* 高亮文本 */
+/* 橙色 */
+/*--字体--*/
+/*--z-index--*/
+/** Reset */
+/** ui */
+/**
+ * ui样式汇总
+ * @author  WeiwuZhu(朱伟武)
+ */
+/** 样式前缀集合 */
+/** 公用变量 */
+/** Reset */
+/** 按钮 */
+/**
+ * 
+ * @authors weiwuzhu 
+ * @description 按钮样式
+ * @important  样式统一前缀  gui-
+ * 注释风格按以下风格 
+ */
+/*--UI控件1--*/
+/*子UI控件1*/
+/*--UI控件2--*/
+/*子UI控件1*/
+/*--按钮--*/
+.gui-btn,
+.gui-btn:visited {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 5px 13px;
+  height: 36px;
+  background: none;
+  border: 1px solid #59a6d9;
+  border-radius: 3px;
+  font: 13px/24px 'Hiragino Sans GB';
+  color: #59a6d9;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.gui-btn:hover {
+  text-decoration: none;
+}
+.gui-btn:active {
+  background: #f3f5f9;
+}
+.gui-btn.disabled,
+.gui-btn[disabled] {
+  background: #8e9da7;
+  color: #fff;
+  border-width: 0;
+  line-height: 26px;
+  cursor: default;
+}
+.gui-btn.disabled:active,
+.gui-btn[disabled]:active {
+  background: #8e9da7;
+}
+.gui-btn.primary {
+  background: #59a6d9;
+  color: #fff;
+}
+.gui-btn.primary:active {
+  background: #428bca;
+}
+.gui-btn.link {
+  background: none;
+  border: none;
+  line-height: 26px;
+}
+.gui-btn.link:active {
+  background: none;
+  color: #428bca;
+}
+.gui-btn.half {
+  width: 48%;
+}
+.gui-btn.full {
+  width: 100%;
+}
+.gui-btn-wrap {
+  padding: 0 15px;
+  font-size: 0;
+}
+.gui-btn-wrap .gui-btn {
+  margin: 5px 0;
+}
+.gui-btn-wrap.col2 .gui-btn:first-child {
+  margin-right: 4%;
+}
+/*--开关按钮--*/
+.gui-on-off {
+  display: inline-block;
+  position: relative;
+  width: 52px;
+  height: 32px;
+  border: 2px solid #59a6d9;
+  background: #59a6d9;
+  border-radius: 16px;
+  font-size: 0;
+  vertical-align: middle;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.gui-on-off:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  border-radius: 50%;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  box-shadow: 0 1px 4px rgba(66, 143, 194, 0.75);
+}
+.gui-on-off.off {
+  border-color: #dde1e4;
+  background: #f3f3f3;
+}
+.gui-on-off.off:before {
+  margin-right: -28px;
+  right: 100%;
+  box-shadow: 0 0 1px #e7e9ec, 0 2px 4px rgba(154, 164, 171, 0.75);
+}
+/*--按钮组--*/
+.gui-btn-group {
+  font-size: 0;
+}
+.gui-btn-group .gui-btn {
+  width: 25%;
+  border-left: none;
+  border-radius: 0;
+}
+.gui-btn-group .gui-btn.current,
+.gui-btn-group .gui-btn.current:active {
+  background: #59a6d9;
+  color: #fff;
+}
+.gui-btn-group .gui-btn:first-child {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.gui-btn-group .gui-btn:last-child {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+/** 表单 */
+/**
+ * 
+ * @authors weiwuzhu 
+ * @description 表单样式
+ * @important  样式统一前缀  gui-
+ * 注释风格按以下风格
+ */
+/*--UI控件1--*/
+/*子UI控件1*/
+/*--UI控件2--*/
+/*子UI控件1*/
+/*--表单元素--*/
+input[type=text],
+input[type=password],
+input[type=url],
+input[type=email] {
+  padding: 5px 12px;
+  width: 100%;
+  height: 36px;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  font: 13px/24px 'Hiragino Sans GB';
+  color: #546a79;
+}
+input[type=text]::-moz-placeholder,
+input[type=password]::-moz-placeholder,
+input[type=url]::-moz-placeholder,
+input[type=email]::-moz-placeholder {
+  color: #aaaaaa;
+  opacity: 1;
+}
+input[type=text]:-ms-input-placeholder,
+input[type=password]:-ms-input-placeholder,
+input[type=url]:-ms-input-placeholder,
+input[type=email]:-ms-input-placeholder {
+  color: #aaaaaa;
+}
+input[type=text]::-webkit-input-placeholder,
+input[type=password]::-webkit-input-placeholder,
+input[type=url]::-webkit-input-placeholder,
+input[type=email]::-webkit-input-placeholder {
+  color: #aaaaaa;
+}
+textarea {
+  padding: 5px 12px;
+  width: 100%;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  font: 13px/24px 'Hiragino Sans GB';
+  color: #546a79;
+  resize: vertical;
+}
+textarea::-moz-placeholder {
+  color: #aaaaaa;
+  opacity: 1;
+}
+textarea:-ms-input-placeholder {
+  color: #aaaaaa;
+}
+textarea::-webkit-input-placeholder {
+  color: #aaaaaa;
+}
+/*--搜索框--*/
+.gui-searchbar {
+  padding: 7px 10px;
+  background: #41abe1;
+}
+.gui-search {
+  position: relative;
+}
+.gui-search input {
+  padding-right: 30px;
+  border: none;
+  line-height: 26px;
+}
+.gui-search button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 31px;
+  height: 100%;
+  background: none;
+  border: none;
+  font-size: 0;
+  cursor: pointer;
+}
+.gui-search button:after {
+  content: '.';
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  margin-top: -8px;
+  width: 15px;
+  height: 15px;
+  background: url(../images/ui/icon-search.png) no-repeat;
+  -webkit-background-size: 100% auto;
+  -ms-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
+}
+/*--checkbox--*/
+input[type=checkbox] {
+  position: relative;
+  width: 18px;
+  height: 1px;
+  border: none;
+  background: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  vertical-align: middle;
+}
+input[type=checkbox]:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -10px;
+  width: 18px;
+  height: 18px;
+  background: url(../images/ui/icon-check.png) no-repeat;
+  -webkit-background-size: 100% auto;
+  -ms-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
+}
+input[type=checkbox]:checked:after {
+  background-image: url(../images/ui/icon-checked.png);
+}
+.gui-label {
+  font-size: 14px;
+  line-height: 32px;
+}
+.gui-label input[type=checkbox],
+.gui-label input[type=radio] {
+  margin-right: 10px;
+}
+.gui-checkbox-list {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+}
+.gui-checkbox-list > li {
+  margin-left: 12px;
+  padding: 9px 12px 9px 0;
+  border-bottom: 1px solid #ccc;
+}
+.gui-checkbox-list > li:last-child {
+  border-bottom: none;
+}
+/*--表单列表--*/
+.gui-form {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+  /*获取验证码*/
+}
+.gui-form > li {
+  margin-left: 12px;
+  padding: 9px 12px 9px 0;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+}
+.gui-form > li:last-child {
+  border-bottom: none;
+}
+.gui-form .form-item {
+  position: relative;
+  padding-right: 20px;
+  height: 32px;
+  overflow: hidden;
+}
+.gui-form .form-item label {
+  float: left;
+  margin-right: 10px;
+  width: 60px;
+  font: 15px/32px 'Hiragino Sans GB';
+  color: #8e9da7;
+}
+.gui-form .form-item .ctn {
+  overflow: hidden;
+}
+.gui-form .form-item input {
+  padding: 8px 0 6px;
+  border: none;
+  height: 32px;
+  width: 100%;
+  font: 13px/18px 'Hiragino Sans GB';
+}
+.gui-form .form-item .help-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -9px;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url(../images/ui/icon-error.png) no-repeat;
+  -webkit-background-size: 100% auto;
+  -ms-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
+}
+.gui-form .form-item .help-icon.success {
+  margin-top: -7px;
+  width: 14px;
+  height: 14px;
+  background-image: url(../images/ui/icon-success.png);
+}
+.gui-form .ide-code .get {
+  float: right;
+  margin-left: 10px;
+  padding: 5px 10px;
+  width: 108px;
+  height: 32px;
+  border: none;
+  background: #59a6d9;
+  font: 13px/22px 'Hiragino Sans GB';
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+}
+.gui-form .ide-code .get.disabled {
+  background: #8e9da7;
+}
+/** 表格 */
+/**
+ * 
+ * @authors weiwuzhu 
+ * @description 表格样式：无边框、带边框、表头带底色、隔行带底色等
+ * @important  样式统一前缀  gui-
+ * 注释风格按以下风格
+ */
+/*--UI控件1--*/
+/*子UI控件1*/
+/*--UI控件2--*/
+/*子UI控件1*/
+/*--表格--*/
+.gui-table {
+  width: 100%;
+  border: none;
+  background: #fff;
+  white-space: nowrap;
+  /*无边框*/
+  /*特殊样式*/
+}
+.gui-table th {
+  padding: 0 5px;
+  height: 40px;
+  border-bottom: 1px solid #cecece;
+  line-height: 40px;
+  color: #8e9da7;
+  background: #ebebeb;
+}
+.gui-table th:first-child {
+  padding-left: 15px;
+}
+.gui-table th:last-child {
+  padding-right: 15px;
+}
+.gui-table td {
+  padding: 10px 5px;
+  height: 45px;
+  font: 13px/24px 'Hiragino Sans GB';
+  background: #ffffff url(../images/ui/table-bd.png) bottom left repeat-x;
+}
+.gui-table td:first-child {
+  padding-left: 15px;
+  background: url(../images/ui/td-bg.png) left bottom no-repeat, #ffffff url(../images/ui/table-bd.png) bottom left repeat-x;
+}
+.gui-table td:last-child {
+  padding-right: 15px;
+  background: url(../images/ui/td-bg.png) right bottom no-repeat, #ffffff url(../images/ui/table-bd.png) bottom left repeat-x;
+}
+.gui-table tr:last-child td {
+  background: none;
+  border-bottom: 1px solid #cecece;
+}
+.gui-table tr.active td,
+.gui-table tr[href]:active td {
+  background-color: #ebebeb;
+  color: #8e9da7;
+}
+.gui-table.noborder th {
+  background: #fff;
+  border-bottom: none;
+  height: 40px;
+  line-height: 40px;
+}
+.gui-table.noborder td {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 32px;
+  line-height: 22px;
+  background-image: none;
+}
+.gui-table.noborder tr:last-child td {
+  border-bottom: none;
+}
+.gui-table small {
+  font-size: 12px;
+}
+/** 辅助 */
+/**
+ * 
+ * @authors weiwuzhu 
+ * @description 辅助样式：文本提示、带底色文本提示、带icon文本提示
+ * @important  样式统一前缀  gui-
+ * 注释风格按以下风格
+ */
+/*--UI控件1--*/
+/*子UI控件1*/
+/*--UI控件2--*/
+/*子UI控件1*/
+/*--纯文本提示--*/
+.gui-help {
+  margin-bottom: 10px;
+  color: #546a79;
+}
+.gui-help .icon {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  margin-right: 5px;
+  width: 18px;
+  height: 18px;
+  background: url(../images/ui/icon-help.png) no-repeat;
+  -webkit-background-size: 100% auto;
+  -ms-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
+  vertical-align: middle;
+}
+.gui-help.info {
+  color: #8e9da7;
+}
+.gui-help.success {
+  color: #88c057;
+}
+.gui-help.success .icon {
+  background-image: url(../images/ui/icon-success.png);
+}
+.gui-help.error {
+  color: #ff7143;
+}
+.gui-help.error .icon {
+  background-image: url(../images/ui/icon-error.png);
+}
+.gui-help.highlight {
+  color: #f28c48;
+}
+.gui-help-bg {
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #546a79;
+  color: #fff;
+}
+.gui-help-bg.info {
+  background: #8e9da7;
+}
+.gui-help-bg.success {
+  background: #88c057;
+}
+.gui-help-bg.error {
+  background: #ff7143;
+}
+/** 图片 */
+/**
+ * 
+ * @authors weiwuzhu 
+ * @description 图片样式：缩略图、圆角图、圆形图等
+ * @important  样式统一前缀  gui-
+ * 注释风格按以下风格
+ */
+/*--UI控件1--*/
+/*子UI控件1*/
+/*--UI控件2--*/
+/*子UI控件1*/
+/*--图片--*/
+.gui-img {
+  border-radius: 5px;
+}
+.gui-img.circle {
+  border-radius: 50%;
+}
+.gui-img.thumbnail {
+  display: inline-block;
+  padding: 4px;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/** 选项卡 */
+/**
+ * 
+ * @authors weiwuzhu 
+ * @description 选项卡样式
+ * @important  样式统一前缀  gui-
+ * 注释风格按以下风格
+ */
+/*--UI控件1--*/
+/*子UI控件1*/
+/*--UI控件2--*/
+/*子UI控件1*/
+/** 设置列表 */
+/**
+ * 
+ * @authors weiwuzhu 
+ * @description 设置列表
+ * @important  样式统一前缀  gui-
+ * 注释风格按以下风格
+ */
+/*--UI控件1--*/
+/*子UI控件1*/
+/*--UI控件2--*/
+/*子UI控件1*/
+/** 进度条 */
+/**
+ * 
+ * @authors weiwuzhu 
+ * @description 进度条
+ * @important  样式统一前缀  gui-
+ * 注释风格按以下风格
+ */
+/*--UI控件1--*/
+/*子UI控件1*/
+/*--UI控件2--*/
+/*子UI控件1*/
+/** 加载 */
+/**
+ * 
+ * @authors weiwuzhu 
+ * @description 加载
+ * @important  样式统一前缀  gui-
+ * 注释风格按以下风格
+ */
+/*--UI控件1--*/
+/*子UI控件1*/
+/*--UI控件2--*/
+/*子UI控件1*/
+/** gri */
+/**
+ * gri样式汇总
+ * @author  WeiwuZhu(朱伟武)
+ * @important 控件的样式统一以 atomu- 为前缀命名
+ */
+/** 样式前缀集合 */
+/** 公用变量 */
+/** Reset */
+/** 对话框 */
+/**
+ * 
+ * @authors weiwuzhu 
+ * @description 对话框
+ * @mark 
+ */
+/** 日历控件 */
+/**
+ * 
+ * @authors weiwuzhu 
+ * @description 日历控件
+ * @mark 
+ */
+/*--日历控件--*/
+.atomu-calendar-btn-wrap {
+  position: relative;
+  margin: 10px 0;
+}
+.atomu-calendar-btn-wrap.open .atomu-calendar-btn {
+  border-color: #ababab;
+}
+.atomu-calendar-btn {
+  height: 38px;
+  border: 1px solid #dcdcdc;
+  background: rgba(255, 255, 255, 0.7);
+  font: 15px/36px 'Hiragino Sans GB';
+  text-align: center;
+  cursor: pointer;
+}
+.atomu-calendar-btn > span {
+  vertical-align: middle;
+}
+.atomu-calendar-btn em {
+  margin: 0 5px;
+  color: #8e9da7;
+}
+.atomu-calendar-btn .icon {
+  display: inline-block;
+  margin-left: 9px;
+  width: 21px;
+  height: 21px;
+  background: url(../images/ui/icon-calendar.png) no-repeat;
+  -webkit-background-size: 100% auto;
+  -ms-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
+  vertical-align: middle;
+}
+.atomu-calendar-wrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  z-index: 500;
+}
+.atomu-calendar {
+  margin-top: -1px;
+  padding-bottom: 10px;
+  border: 1px solid #ababab;
+  background: #fff;
+  -webkit-animation-duration: 0.35s;
+  animation-duration: 0.35s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  /*单独选某一天*/
+  /*选择周期*/
+  /*日期不可选*/
+  /*下拉动画*/
+  /*收起动画*/
+}
+.atomu-calendar > .hd {
+  position: relative;
+  margin: 10px 10px 0;
+  height: 30px;
+  font: 13px/30px 'Hiragino Sans GB';
+  text-align: center;
+}
+.atomu-calendar > .hd .trigger {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 30px;
+  font-size: 0;
+}
+.atomu-calendar > .hd .trigger:before {
+  position: relative;
+  top: -2px;
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 12px;
+  background: url(../images/ui/calendar-left.png) no-repeat;
+  -webkit-background-size: 100% auto;
+  -ms-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
+  vertical-align: middle;
+}
+.atomu-calendar > .hd .next {
+  left: auto;
+  right: 0;
+}
+.atomu-calendar > .hd .next:before {
+  background-image: url(../images/ui/calendar-right.png);
+}
+.atomu-calendar table {
+  width: 100%;
+  line-height: 30px;
+}
+.atomu-calendar th {
+  font-family: arial;
+  text-align: center;
+}
+.atomu-calendar td {
+  padding: 2px 0;
+  text-align: center;
+}
+.atomu-calendar .num {
+  margin: 0 auto;
+  min-width: 30px;
+  height: 30px;
+}
+.atomu-calendar td.single-selected .num {
+  width: 30px;
+  border-radius: 15px;
+  background: #ea5529;
+  color: #fff;
+  font-weight: bold;
+}
+.atomu-calendar td.first,
+.atomu-calendar td.last {
+  position: relative;
+}
+.atomu-calendar td.first:before,
+.atomu-calendar td.last:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -15px;
+  width: 50%;
+  height: 30px;
+  background: #ea5529;
+}
+.atomu-calendar td.first .num,
+.atomu-calendar td.last .num {
+  position: relative;
+  z-index: 2;
+  width: 30px;
+  border: 1px solid #ea5529;
+  border-radius: 15px;
+  background: #fff;
+  line-height: 28px;
+}
+.atomu-calendar td.last:before {
+  left: 0;
+  right: auto;
+}
+.atomu-calendar td.selected .num {
+  background: #ea5529;
+  color: #fff;
+}
+.atomu-calendar td.disabled {
+  color: #d3d3d3;
+}
+.atomu-calendar > .ft {
+  margin-bottom: -5px;
+  padding: 5px 10px 0;
+  text-align: right;
+}
+.atomu-calendar > .ft a {
+  color: #8e9da7;
+  line-height: 24px;
+  font-size: 14px;
+  text-decoration: none;
+}
+.atomu-calendar > .ft a.sure {
+  margin-left: 20px;
+  color: #ea5529;
+}
+.atomu-calendar.slidedown {
+  -webkit-animation-name: calendarSlideDown;
+  animation-name: calendarSlideDown;
+}
+.atomu-calendar.slideup {
+  -webkit-animation-name: calendarSlideUp;
+  animation-name: calendarSlideUp;
+}
+/*下拉动画*/
+@-webkit-keyframes calendarSlideDown {
+  0% {
+    -webkit-transform: translate(0, -100%);
+    -ms-transform: translate(0, -100%);
+    -o-transform: translate(0, -100%);
+    transform: translate(0, -100%);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+@keyframes calendarSlideDown {
+  0% {
+    -webkit-transform: translate(0, -100%);
+    -ms-transform: translate(0, -100%);
+    -o-transform: translate(0, -100%);
+    transform: translate(0, -100%);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+/*收起动画*/
+@-webkit-keyframes calendarSlideUp {
+  0% {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, -100%);
+    -ms-transform: translate(0, -100%);
+    -o-transform: translate(0, -100%);
+    transform: translate(0, -100%);
+  }
+}
+@keyframes calendarSlideUp {
+  0% {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, -100%);
+    -ms-transform: translate(0, -100%);
+    -o-transform: translate(0, -100%);
+    transform: translate(0, -100%);
+  }
+}
+
+.atomu-mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .8;
+    z-index: 499
+}
+
+.atomu-mask.hide {
+    -webkit-animation: maskHide .35s linear both;
+    -o-animation: maskHide .35s linear both;
+    animation: maskHide .35s linear both
+}
+
+.atomu-mask.show {
+    -webkit-animation: maskShow .35s linear both;
+    -o-animation: maskShow .35s linear both;
+    animation: maskShow .35s linear both
+}
+
+@-webkit-keyframes maskHide {
+    100% {
+        opacity: 0
+    }
+}
+
+@keyframes maskHide {
+    100% {
+        opacity: 0
+    }
+}
+
+@-webkit-keyframes maskShow {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: .8
+    }
+}
+
+@keyframes maskShow {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: .8
+    }
+}
+/*--页面、图片等的滑动动画框架--*/
+/**
+ * 
+ * @authors weiwuzhu 
+ * @description 页面、图片等的滑动动画框架
+ * @mark 
+ */
+/*--页面、图片等的滑动动画框架--*/
+.atomu-slider {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.atomu-slider .loading-box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.atomu-slider .loading-box i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -12px 0 0 -12px;
+  width: 23px;
+  height: 23px;
+  background-image: url("../images/ui/loading.png");
+  -webkit-background-size: 100% auto;
+  -ms-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
+  -webkit-animation: automuLoading 1s linear infinite;
+  -o-animation: automuLoading 1s linear infinite;
+  animation: automuLoading 1s linear infinite;
+}
+/*loading动画*/
+@-webkit-keyframes automuLoading {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes automuLoading {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.atomu-slider-ctn {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+.atomu-slider-ctn > li {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.atomu-slider-ctn > li.pic {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+}
+.atomu-slider-ctn > li.pic img {
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+}
+/*圆点控制项*/
+.atomu-slider-ctrl {
+  position: absolute;
+  left: 0;
+  bottom: 10%;
+  width: 100%;
+  text-align: center;
+  font-size: 0;
+  z-index: 200;
+}
+.atomu-slider-ctrl li {
+  display: inline-block;
+  margin: 0 5px;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+.atomu-slider-ctrl li.current {
+  background: #fff;
+}
+/*左右切换按钮*/
+.atomu-slider-pages button {
+  position: absolute;
+  left: 3%;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+.atomu-slider-pages button span {
+  display: block;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+}
+.atomu-slider-pages button span:after {
+  content: '';
+  display: block;
+  margin-left: 23px;
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 4px solid #59a6d9;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  box-shadow: 0 0 6px #000;
+}
+.atomu-slider-pages button.next {
+  left: auto;
+  right: 3%;
+}
+.atomu-slider-pages button.next span:after {
+  margin-left: -23px;
+}
+/*--下拉菜单--*/
+/**
+ * 
+ * @authors weiwuzhu 
+ * @description 下拉菜单
+ * @mark 
+ */
+/*--下拉菜单--*/
+.atomu-dropdown-btn,
+.atomu-dropdown-btn:visited {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 5px 13px;
+  height: 36px;
+  border: 1px solid #59a6d9;
+  border-radius: 3px;
+  background: #59a6d9;
+  font: 13px/24px 'Hiragino Sans GB';
+  color: #fff;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.atomu-dropdown-btn:hover {
+  text-decoration: none;
+}
+.atomu-dropdown-btn:active {
+  background: #428bca;
+}
+.atomu-dropdown-btn > .caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 6px 0;
+  border-color: #fff transparent;
+  vertical-align: middle;
+}
+.atomu-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.atomu-dropdown-toggle:focus {
+  outline: 0;
+}
+.atomu-dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1020;
+  display: none;
+  margin: 9px 0 0;
+  padding: 15px;
+  min-width: 160px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  text-align: left;
+  line-height: 1.6;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  -ms-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-animation-duration: 0.15s;
+  animation-duration: 0.15s;
+}
+.atomu-dropdown-content:before,
+.atomu-dropdown-content:after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: -8px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: #ddd transparent;
+  border-width: 0 8px 8px;
+  z-index: 1;
+  pointer-events: none;
+}
+.atomu-dropdown-content:after {
+  top: -7px;
+  border-color: #fff transparent;
+}
+.atomu-dropdown-content:first-child {
+  margin-top: 0;
+}
+.atomu-active > .atomu-dropdown-btn,
+.atomu-active > .atomu-dropdown-btn:hover,
+.atomu-active > .atomu-dropdown-btn:active {
+  background: #428bca;
+}
+.atomu-active > .atomu-dropdown-content {
+  display: block;
+}
+.atomu-dropdown-up .atomu-dropdown-content {
+  top: auto;
+  bottom: 100%;
+  margin: 0 0 9px;
+}
+.atomu-dropdown-up .atomu-dropdown-content:before,
+.atomu-dropdown-up .atomu-dropdown-content:after {
+  top: auto;
+  bottom: -8px;
+  border-width: 8px 8px 0;
+}
+.atomu-dropdown-up .atomu-dropdown-content:after {
+  bottom: -7px;
+}
+.atomu-dropdown-flip .atomu-dropdown-content {
+  left: auto;
+  right: 0;
+}
+.atomu-dropdown-flip .atomu-dropdown-content:before,
+.atomu-dropdown-flip .atomu-dropdown-content:after {
+  left: auto;
+  right: 10px;
+}
+ul.atomu-dropdown-content {
+  padding: 5px 0;
+  list-style: none;
+  font: 14px/1.6 'Hiragino Sans GB';
+}
+ul.atomu-dropdown-content.atomu-fr {
+  right: 0;
+  left: auto;
+}
+ul.atomu-dropdown-content .atomu-divider {
+  margin: 0 0;
+  height: 1px;
+  background-color: #e5e5e5;
+  overflow: hidden;
+}
+ul.atomu-dropdown-content > li > a {
+  display: block;
+  padding: 6px 20px;
+  clear: both;
+  font-weight: 400;
+  color: #333;
+  white-space: nowrap;
+  text-decoration: none;
+}
+ul.atomu-dropdown-content > li > a:hover,
+ul.atomu-dropdown-content > li > a:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
+}
+ul.atomu-dropdown-content > li.atomu-active > a,
+ul.atomu-dropdown-content > li.atomu-active > a:hover,
+ul.atomu-dropdown-content > li.atomu-active > a:focus {
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #0e90d2;
+}
+ul.atomu-dropdown-content > li.atomu-disabled > a,
+ul.atomu-dropdown-content > li.atomu-disabled > a:hover,
+ul.atomu-dropdown-content > li.atomu-disabled > a:focus {
+  color: #999;
+}
+ul.atomu-dropdown-content > li.atomu-disabled > a:hover,
+ul.atomu-dropdown-content > li.atomu-disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  cursor: not-allowed;
+}
+.atomu-dropdown-header {
+  display: block;
+  padding: 6px 20px;
+  font-size: 12px;
+  color: #999;
+}
+.atomu-dropdown-animation {
+  -webkit-animation: atomu-dropdown-animation 0.15s ease-out;
+  -o-animation: atomu-dropdown-animation 0.15s ease-out;
+  animation: atomu-dropdown-animation 0.15s ease-out;
+}
+@-webkit-keyframes atomu-dropdown-animation {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+}
+@keyframes atomu-dropdown-animation {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+}
+.atomu-animation-slide-top {
+  -webkit-animation-name: atomu-slide-top;
+  animation-name: atomu-slide-top;
+}
+@-webkit-keyframes atomu-slide-top {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes atomu-slide-top {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+.atomu-animation-slide-top-fixed {
+  -webkit-animation-name: atomu-slide-top-fixed;
+  animation-name: atomu-slide-top-fixed;
+}
+@-webkit-keyframes atomu-slide-top-fixed {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes atomu-slide-top-fixed {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+/*--选项卡--*/
+/**
+ * 
+ * @authors weiwuzhu 
+ * @description 选项卡
+ * @mark 
+ */
+/*--选项卡--*/
+.atomu-tabs-nav {
+  border-bottom: 1px solid #ddd;
+}
+.atomu-tabs-nav:after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+.atomu-tabs-nav > li {
+  float: left;
+  margin-bottom: -1px;
+}
+.atomu-tabs-nav > li > a {
+  display: block;
+  margin-right: 5px;
+  padding: 0 16px;
+  border: 1px solid transparent;
+  font: 14px/36px 'Hiragino Sans GB';
+  color: #59a6d9;
+  text-decoration: none;
+}
+.atomu-tabs-nav > li > a:hover {
+  text-decoration: none;
+  background-color: #eee;
+}
+.atomu-tabs-nav > li.atomu-active > a,
+.atomu-tabs-nav > li.atomu-active > a:hover {
+  border-color: #ddd #ddd transparent;
+  background-color: #fff;
+  color: #546a79;
+}
+.atomu-tabs-bd {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-top: none;
+  z-index: 100;
+  -webkit-transition: height 0.3s;
+  -o-transition: height 0.3s;
+  transition: height 0.3s;
+}
+.atomu-tabs-bd .atomu-tab-panel {
+  position: absolute;
+  top: 0;
+  z-index: 99;
+  float: left;
+  width: 100%;
+  padding: 10px 10px 15px;
+  visibility: hidden;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform .3s;
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+.atomu-tabs-bd .atomu-tab-panel * {
+  -webkit-user-drag: none;
+}
+.atomu-tabs-bd .atomu-tab-panel.atomu-active {
+  position: relative;
+  z-index: 100;
+  visibility: visible;
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+}
+.atomu-tabs-bd .atomu-tab-panel.atomu-active ~ .atomu-tab-panel {
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
+}
+/** 动画 */
+/**
+ * 
+ * @authors weiwuzhu 
+ * @description 移动端动画库
+ * @mark 动画命名规则：动画类型+in/out（展开/收起）+方向（left/right/top/bottom）
+ */
+.animated {
+  -webkit-animation-duration: 0.35s;
+  animation-duration: 0.35s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+/* scale */
+.scaleIn {
+  -webkit-animation-name: scaleIn;
+  animation-name: scaleIn;
+}
+@-webkit-keyframes scaleIn {
+  0% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+  }
+  75% {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes scaleIn {
+  0% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+  }
+  75% {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+}
+.scaleInTop {
+  -webkit-animation-name: scaleInTop;
+  animation-name: scaleInTop;
+  -webkit-transform-origin: center top;
+  -moz-transform-origin: center top;
+  -ms-transform-origin: center top;
+  transform-origin: center top;
+}
+@-webkit-keyframes scaleInTop {
+  0% {
+    -webkit-transform: scale3d(0, 0, 1);
+    transform: scale3d(0, 0, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.1, 1.1, 1);
+    transform: scale3d(1.1, 1.1, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes scaleInTop {
+  0% {
+    -webkit-transform: scale3d(0, 0, 1);
+    transform: scale3d(0, 0, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.1, 1.1, 1);
+    transform: scale3d(1.1, 1.1, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+.scaleOutTop {
+  -webkit-animation-name: scaleOutTop;
+  animation-name: scaleOutTop;
+  -webkit-transform-origin: center top;
+  -moz-transform-origin: center top;
+  -ms-transform-origin: center top;
+  transform-origin: center top;
+}
+@-webkit-keyframes scaleOutTop {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(0, 0, 1);
+    transform: scale3d(0, 0, 1);
+  }
+}
+@keyframes scaleOutTop {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(0, 0, 1);
+    transform: scale3d(0, 0, 1);
+  }
+}
+/* slide */
+.slideInTop {
+  -webkit-animation-name: slideInTop;
+  animation-name: slideInTop;
+}
+@-webkit-keyframes slideInTop {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes slideInTop {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+.slideInBottom {
+  -webkit-animation-name: slideInBottom;
+  animation-name: slideInBottom;
+}
+@-webkit-keyframes slideInBottom {
+  0% {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes slideInBottom {
+  0% {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+.slideInLeft {
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLeft;
+}
+@-webkit-keyframes slideInLeft {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes slideInLeft {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+.slideInRight {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+}
+@-webkit-keyframes slideInRight {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes slideInRight {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+.slideOutBottom {
+  -webkit-animation-name: slideOutBottom;
+  animation-name: slideOutBottom;
+}
+@-webkit-keyframes slideOutBottom {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+@keyframes slideOutBottom {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+.slideOutLeft {
+  -webkit-animation-name: slideOutLeft;
+  animation-name: slideOutLeft;
+}
+@-webkit-keyframes slideOutLeft {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+@keyframes slideOutLeft {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+.slideOutRight {
+  -webkit-animation-name: slideOutRight;
+  animation-name: slideOutRight;
+}
+@-webkit-keyframes slideOutRight {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+}
+@keyframes slideOutRight {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+}
+.slideOutTop {
+  -webkit-animation-name: slideOutTop;
+  animation-name: slideOutTop;
+}
+@-webkit-keyframes slideOutTop {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+@keyframes slideOutTop {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+/* maskfade */
+.maskFadeIn {
+  -webkit-animation-name: maskFadeIn;
+  animation-name: maskFadeIn;
+}
+@-webkit-keyframes maskFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+@keyframes maskFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+.maskFadeOut {
+  -webkit-animation-name: maskFadeOut;
+  animation-name: maskFadeOut;
+}
+@-webkit-keyframes maskFadeOut {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes maskFadeOut {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* bounce */
+.bounceTop {
+  -webkit-animation-name: bounceTop;
+  animation-name: bounceTop;
+}
+@-webkit-keyframes bounceTop {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  40%,
+  43% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, 30px, 0);
+    transform: translate3d(0, 30px, 0);
+  }
+  70% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, 15px, 0);
+    transform: translate3d(0, 15px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0, 4px, 0);
+    transform: translate3d(0, 4px, 0);
+  }
+}
+@keyframes bounceTop {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  40%,
+  43% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, 30px, 0);
+    transform: translate3d(0, 30px, 0);
+  }
+  70% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, 15px, 0);
+    transform: translate3d(0, 15px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0, 4px, 0);
+    transform: translate3d(0, 4px, 0);
+  }
+}
+.bounceBottom {
+  -webkit-animation-name: bounceBottom;
+  animation-name: bounceBottom;
+}
+@-webkit-keyframes bounceBottom {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  40%,
+  43% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -60px, 0);
+    transform: translate3d(0, -60px, 0);
+  }
+  70% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -30px, 0);
+    transform: translate3d(0, -30px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0, -8px, 0);
+    transform: translate3d(0, -8px, 0);
+  }
+}
+@keyframes bounceBottom {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  40%,
+  43% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -60px, 0);
+    transform: translate3d(0, -60px, 0);
+  }
+  70% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -30px, 0);
+    transform: translate3d(0, -30px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0, -8px, 0);
+    transform: translate3d(0, -8px, 0);
+  }
+}

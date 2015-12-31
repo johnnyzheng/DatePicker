@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Atomu Datepicker Demo</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no;" name="viewport" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) imgcache/css/global.css -->
+    <link href="css/reset.css" rel="stylesheet">
+	<link href="css/global.css" rel="stylesheet">
+    <!-- endbuild -->
+
+    <!-- 如果要解决移动端点击事件有300ms延迟的问题 
+    <script src="js/lib/fastclick.js"></script>
+    -->
+    <script src="js/zepto.min.js"></script>
+    <script src="js/atomu.DatePicker.js"></script>
+</head>
+<body>
+    <div id="date_container"></div>
+    <div style="margin:20px 20px">
+        <h3>（在手机中查看效果更佳）</h3>
+        <div class="atomu-calendar-btn">
+            日期：<time id="date_trigger" class="time"><span></span>
+            </time>
+        </div>
+    </div>
+    
+	<script type="text/javascript">
+        /** 配合fastclick 解决移动端click 300ms延迟的问题 
+        $(function() {
+          FastClick.attach(document.body);
+        });
+        */
+
+        new atomuDatePicker({
+                    'containerId': 'date_container',
+                    'triggerId' : 'date_trigger',
+                    'isSingleDay' : true,
+                    'stopToday' : false,
+                    'clickSubmit':true, //点选立即提交
+                    'defaultDate' : '2015-12-31',
+                    // 'autoSubmit':true, //初始化即提交
+                    'callback':function(dateObj){
+                        $('time span').html(dateObj);
+                    }
+                });
+         
+    </script>
+</body>
+</html>

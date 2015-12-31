@@ -1,0 +1,27 @@
+html,body{-webkit-text-size-adjust:none;-webkit-tap-highlight-color:transparent;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,button,article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section{margin:0;padding:0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+address,caption,cite,code,dfn,em,strong,th,var,i{font-style:normal;font-weight:normal}
+ol,ul{list-style:none}caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:''}
+abbr,acronym{border:0;font-variant:normal}
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+:focus{outline: none;}
+mark{background: none;}
+
+/*请根据实际情况修改字体、颜色、字号等*/
+body{font: 12px/1.5 "Hiragino Sans GB", "Heiti SC", "Microsoft Yahei", "Helvetica Neue", Helvetica;color: #546a79;}
