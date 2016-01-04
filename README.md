@@ -1,14 +1,22 @@
 <h2>组件说明</h2>
-　　日期选择组件，覆盖大部分的日期选择的交互和功能，特别适合基于日期操作的配置类或数据展示类的系统或者应用，基于jQuery1.7.2。
+　　日期选择组件，覆盖大部分的日期选择的交互和功能，特别适合基于日期操作的配置类或数据展示类PC端系统或者应用，或者手机端的有日期点选操作的H5应用。
 
 <h2>文件列表</h2>
+PC_version（适用PC端的日期选择组件）
 +  jquery.min.js是官方jQuery1.7.2的压缩版。
 +  dateRange.js是日期选择器的主JS库。
 +  dateRange.css 是日期选择器的样式列表。
 +  ./images 是组件用到的图片资源。
-+  sample.html 示例代码
++  sample.html 示例页面
+
+Mobile_version（适用Mobile端的日期选择组件）
++  css 样式文件
++  images 图片文件
++  js 组件用到的移动端dom操作类库zepto.js（必选），还有解决click事件在移动端延迟300ms的fastclick.js（可选）
++  sample.html 示例页面
 
 <h2>使用说明</h2>
+PC_Version（适用PC端的日期选择组件）
 ###调用示例（最简单的调用示例）：###
 <pre>
 	<code>
