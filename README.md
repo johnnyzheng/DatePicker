@@ -15,8 +15,7 @@ Mobile_version（适用Mobile端的日期选择组件）
 +  js 组件用到的移动端dom操作类库zepto.js（必选），还有解决click事件在移动端延迟300ms的fastclick.js（可选）
 +  sample.html 示例页面
 
-<h2>使用说明</h2>
-PC_Version（适用PC端的日期选择组件）
+<h2>PC_Version使用说明（适用PC端的日期选择组件）</h2>
 ###调用示例（最简单的调用示例）：###
 <pre>
 	<code>
@@ -74,6 +73,48 @@ PC_Version（适用PC端的日期选择组件）
             startCompareDate:'2015-10-01',
             endCompareDate:'2015-10-08'
         }
+    </code>
+</pre>
+
+<h2>Mobile_Version使用说明（适用Mobile端的日期选择组件）</h2>
+###调用示例（最简单的调用示例）：###
+<pre>
+	<code>
+		new atomuDatePicker({
+                    'containerId': 'date_container',
+                    'triggerId' : 'date_trigger',
+                    'isSingleDay' : true,
+                    'stopToday' : false,
+                    'clickSubmit':true, //点选立即提交
+                    'defaultDate' : '2015-12-31',
+                    'callback':function(dateObj){
+                    	//todo callback
+                    }
+                });
+	</code>
+</pre>
+###重点参数:###
+####containerId####
+容器id，用于放日期选择html面板的占位元素ID。
+####defaultDate####
+默认选中的日期，接受字符串，格式为“2015-12-31”。
+####stopToday####
+用于控制可选粒度，今天之后的日期是否可选，默认不可选，如需要可选，设置为false。
+####clickSubmit####
+点击即可提交，不需要【确定】【取消】按钮，设置为true。
+####stopToday####
+控制日期选择器的可选粒度，如果此配置项配置为true，则表示今天之后的日期将不可选择。
+####ctnCss、wrapCss、selectCss等####
+组件预设了一些支持调用方自定义样式的key，来覆盖日期选择器预设的样式。
+####autoSubmit####
+日期选择器默认初始化后，并不会提交callback handler的事件，有一些场景希望在业务初始化完毕后就调用，
+比如某些报表系统，希望默认页面完成加载就执行查询，则可以在初始化日期选择器的时候设置为true，默认是false。
+######--- 更多调用示例和参数组合，可参见sample.html ---######
+<h2>返回值说明</h2>
+在回调函数中会讲选择的日期实体回传，供在回调内部访问操作
+<pre>
+    <code>
+        retObj = ‘2015-12-31’
     </code>
 </pre>
 
