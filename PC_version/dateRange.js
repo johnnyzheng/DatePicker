@@ -13,6 +13,7 @@
  *					  2014-02-25  增加业务接口：获取当前日期对象的的选中日期
  *					  2014-10-13  扩展参数，支持日期下拉选择自定义年和月份，配合theme:ta来使用。
  *                    2015-11-17  重新整理代码
+ *                    2017-03-16  添加destroy方法，添加updateSelectedDate方法，修正formatDate方法
  *=======================================================================
  */
 /**
@@ -447,9 +448,19 @@ function pickerDateRange(inputId, options) {
         });
     }
     //让用户点击页面即可关闭弹窗
-    $(document).bind('click', function() {
+    __method.documentClick = function() {
         __method.close();
-    });
+    };
+    $(document).bind('click', __method.documentClick);
+};
+
+/**
+ * @description 销毁方法
+ */
+pickerDateRange.prototype.destroy = function() {
+    $(document).unbind('click', this.documentClick);
+    $('#' + this.calendarId).remove();
+    $('#' + this.inputId).val('');
 };
 
 /**
@@ -1434,11 +1445,34 @@ pickerDateRange.prototype.changeInput = function(ipt) {
 pickerDateRange.prototype.formatDate = function(ymd) {
     return ymd.replace(/(\d{4})\-(\d{1,2})\-(\d{1,2})/g, function(ymdFormatDate, y, m, d) {
         if (m < 10) {
-            m = '0' + m;
+            m = '0' + (+m);
         }
         if (d < 10) {
-            d = '0' + d;
+            d = '0' + (+d);
         }
         return y + '-' + m + '-' + d;
     });
 };
+
+/**
+ * @description 手动设置日历开始和结束时间
+ * @param {String} start 时间字符串
+ * @param {String} end   时间字符串
+ */
+pickerDateRange.prototype.updateSelectedDate = function(start, end) {
+    $.extend(this.mOpts, {
+        startDate: start,
+        endDate: end
+    });
+    // this.init();
+    this.selectDate(this.mOpts.startDate);
+    this.selectDate(this.mOpts.endDate);
+    this.close(1);
+    this.mOpts.success({
+        'startDate': $('#' + this.mOpts.startDateId).val(),
+        'endDate': $('#' + this.mOpts.endDateId).val(),
+        'needCompare': $('#' + this.mOpts.compareCheckboxId).val(),
+        'startCompareDate': $('#' + this.mOpts.startCompareDateId).val(),
+        'endCompareDate': $('#' + this.mOpts.endCompareDateId).val()
+    });
+}
