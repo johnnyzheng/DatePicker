@@ -72,7 +72,7 @@ Mobile_version（适用Mobile端的日期选择组件）
         }
 
 <h2>Mobile_Version使用说明（适用Mobile端的日期选择组件）</h2>
-### 调用示例（最简单的调用示例）: 
+<h3>调用示例（最简单的调用示例）:  </h3>
 
 		new atomuDatePicker({
                     'containerId': 'date_container',
