@@ -105,7 +105,7 @@ Mobile_version（适用Mobile端的日期选择组件）
 ###### --- 更多调用示例和参数组合，可参见sample.html --- ######
 <h2>返回值说明</h2>
 在回调函数中会讲选择的日期实体回传，供在回调内部访问操作
-	retObj = ‘2015-12-31’
+<pre><code>retObj = ‘2015-12-31’</code></pre>
 
 <h2>欢迎捐赠</h2>
 <img src="http://imgcache.xg.qq.com/weight/wx4johnny.jpg" alt="捐赠码"/>
